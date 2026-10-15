@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="pt-MZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Dental</title>
+    <meta
+      name="description"
+      content="Elite Dental - cuidados dentários em Beira. Saúde oral, estética e reabilitação dentária. Marque a sua consulta hoje."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --enamel: #f7f5ef;
+        --enamel-dim: #efebe0;
+        --ink: #12262a;
+        --ink-soft: #3c4f52;
+        --teal-deep: #0e4749;
+        --teal-mid: #1f7a73;
+        --aqua: #bfe3dc;
+        --coral: #e1543f;
+        --coral-dark: #c4402e;
+        --sand: #d9cfb8;
+        --line: rgba(18, 38, 42, 0.12);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--enamel);
+        color: var(--ink);
+        font-family: "Work Sans", sans-serif;
+        font-weight: 400;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--teal-mid);
+        font-weight: 500;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 450;
+        letter-spacing: -0.01em;
+        color: var(--teal-deep);
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ---------- Reduced motion ---------- */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          transition-duration: 0.001ms !important;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      /* ---------- Focus states ---------- */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--coral);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      /* ================= HEADER ================= */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(247, 245, 239, 0.88);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 32px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--teal-deep);
+        letter-spacing: -0.01em;
+      }
+      .logo span {
+        color: var(--coral);
+      }
+      .nav-links {
+        display: flex;
+        gap: 36px;
+        font-size: 0.92rem;
+      }
+      .nav-links a {
+        color: var(--ink-soft);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--teal-deep);
+      }
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--teal-deep);
+        color: var(--enamel);
+        padding: 10px 20px;
+        border-radius: 100px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        white-space: nowrap;
+      }
+      .nav-cta:hover {
+        background: var(--coral);
+        transform: translateY(-1px);
+      }
+      .nav-mobile-hide {
+        display: flex;
+      }
+      @media (max-width: 820px) {
+        .nav-mobile-hide {
+          display: none;
+        }
+      }
+
+      /* ================= HERO ================= */
+      .hero {
+        position: relative;
+        padding: 64px 0 0;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 56px;
+        align-items: center;
+        padding-bottom: 70px;
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 4.6vw, 3.7rem);
+        line-height: 1.06;
+        margin: 18px 0 22px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--coral);
+      }
+      .hero p.lead {
+        font-size: 1.08rem;
+        color: var(--ink-soft);
+        max-width: 46ch;
+        margin-bottom: 32px;
+      }
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 34px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 26px;
+        border-radius: 100px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        font-family: "Work Sans", sans-serif;
+        border: 1.5px solid transparent;
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease;
+      }
+      .btn-primary {
+        background: var(--coral);
+        color: #fff;
+        box-shadow: 0 10px 24px -10px rgba(225, 84, 63, 0.55);
+      }
+      .btn-primary:hover {
+        background: var(--coral-dark);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--teal-deep);
+        border-color: var(--line);
+      }
+      .btn-ghost:hover {
+        border-color: var(--teal-deep);
+        background: var(--enamel-dim);
+      }
+
+      .quickfacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .quickfacts div {
+        flex: 1 1 33%;
+        padding: 16px 18px;
+        border-right: 1px solid var(--line);
+      }
+      .quickfacts div:last-child {
+        border-right: none;
+      }
+      .quickfacts .qf-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--teal-mid);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .quickfacts .qf-value {
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      @media (max-width: 560px) {
+        .quickfacts div {
+          flex: 1 1 100%;
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .quickfacts div:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+      .hero-photo {
+        border-radius: 26px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px -25px rgba(14, 71, 73, 0.45);
+        aspect-ratio: 4/5;
+      }
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .floating-card {
+        position: absolute;
+        left: -34px;
+        bottom: -28px;
+        background: var(--teal-deep);
+        color: var(--enamel);
+        padding: 20px 24px;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px -18px rgba(14, 71, 73, 0.55);
+        max-width: 230px;
+      }
+      .floating-card .fc-eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--aqua);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .floating-card .fc-main {
+        font-family: "Fraunces", serif;
+        font-size: 1.15rem;
+        font-weight: 500;
+      }
+      @media (max-width: 900px) {
+        .floating-card {
+          left: 16px;
+          bottom: -24px;
+        }
+      }
+
+      /* Smile-arc divider - signature motif */
+      .arc-divider {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: -2px;
+      }
+
+      /* ================= TRUST STRIP ================= */
+      .trust {
+        background: var(--teal-deep);
+        color: var(--enamel);
+        padding: 26px 0;
+      }
+      .trust .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px 48px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.92rem;
+        color: var(--aqua);
+      }
+      .trust-item strong {
+        color: var(--enamel);
+        font-weight: 500;
+      }
+      .trust-icon {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--coral);
+        flex: none;
+      }
+
+      /* ================= SECTION SHARED ================= */
+      section {
+        padding: 96px 0;
+      }
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 56px;
+      }
+      .section-head h2 {
+        font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+        margin-top: 14px;
+        line-height: 1.12;
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        margin-top: 16px;
+        font-size: 1.02rem;
+      }
+
+      /* ================= SERVICES ================= */
+      .services {
+        background: var(--enamel);
+      }
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      @media (max-width: 820px) {
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .service-card {
+        background: #fff;
+        padding: 38px 32px;
+        transition: background 0.25s;
+      }
+      .service-card:hover {
+        background: var(--enamel-dim);
+      }
+      .service-num {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--coral);
+        letter-spacing: 0.08em;
+      }
+      .service-card h3 {
+        font-size: 1.28rem;
+        margin: 16px 0 10px;
+        font-weight: 500;
+      }
+      .service-card p {
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      /* ================= WHY / FEATURE SPLIT ================= */
+      .why {
+        background: var(--enamel-dim);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .why-photo {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 24px 50px -22px rgba(14, 71, 73, 0.35);
+      }
+      .why-list {
+        list-style: none;
+      }
+      .why-list li {
+        display: flex;
+        gap: 18px;
+        padding: 22px 0;
+        border-top: 1px solid var(--line);
+      }
+      .why-list li:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .why-mark {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        color: var(--coral);
+        font-size: 1.3rem;
+        flex: none;
+        width: 28px;
+      }
+      .why-list h4 {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        font-size: 1.08rem;
+        color: var(--teal-deep);
+        margin-bottom: 6px;
+      }
+      .why-list p {
+        color: var(--ink-soft);
+        font-size: 0.94rem;
+      }
+
+      /* ================= REVIEW ================= */
+      .review {
+        background: var(--enamel);
+      }
+      .review-card {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .review-quote {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+        color: var(--teal-deep);
+        line-height: 1.4;
+      }
+      .review-attrib {
+        margin-top: 22px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--teal-mid);
+        letter-spacing: 0.04em;
+      }
+
+      /* ================= LOCATION / CTA ================= */
+      .location {
+        background: var(--teal-deep);
+        color: var(--enamel);
+        position: relative;
+        overflow: hidden;
+      }
+      .location .arc-divider-top {
+        display: block;
+        width: 100%;
+        margin-bottom: -2px;
+      }
+      .loc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .loc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .location .eyebrow {
+        color: var(--aqua);
+      }
+      .location h2 {
+        color: var(--enamel);
+        font-size: clamp(1.9rem, 3vw, 2.5rem);
+        margin-top: 14px;
+      }
+      .location p {
+        color: rgba(247, 245, 239, 0.78);
+        margin-top: 16px;
+        max-width: 44ch;
+      }
+      .loc-detail {
+        display: flex;
+        gap: 16px;
+        padding: 20px 0;
+        border-top: 1px solid rgba(247, 245, 239, 0.16);
+      }
+      .loc-detail:last-child {
+        border-bottom: 1px solid rgba(247, 245, 239, 0.16);
+      }
+      .loc-detail .li-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--aqua);
+        width: 110px;
+        flex: none;
+        padding-top: 3px;
+      }
+      .loc-detail .li-value {
+        font-size: 1rem;
+        color: var(--enamel);
+      }
+      .loc-detail .li-value a {
+        border-bottom: 1px solid rgba(247, 245, 239, 0.4);
+      }
+      .loc-detail .li-value a:hover {
+        border-color: var(--coral);
+        color: var(--coral);
+      }
+
+      .final-cta-card {
+        background: var(--enamel);
+        color: var(--ink);
+        border-radius: 22px;
+        padding: 40px 36px;
+      }
+      .final-cta-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+      }
+      .final-cta-card p {
+        color: var(--ink-soft);
+        margin-bottom: 26px;
+        font-size: 0.96rem;
+      }
+      .final-cta-card .btn-primary {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+      .final-cta-card .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* ================= FOOTER ================= */
+      footer {
+        background: var(--ink);
+        color: rgba(247, 245, 239, 0.6);
+        padding: 44px 0 30px;
+      }
+      .foot-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding-bottom: 28px;
+        border-bottom: 1px solid rgba(247, 245, 239, 0.12);
+      }
+      .foot-logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.15rem;
+        color: var(--enamel);
+        font-weight: 500;
+      }
+      .foot-logo span {
+        color: var(--coral);
+      }
+      .foot-links {
+        display: flex;
+        gap: 28px;
+        font-size: 0.88rem;
+      }
+      .foot-links a:hover {
+        color: var(--enamel);
+      }
+      .foot-bottom {
+        padding-top: 22px;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      #eu > a {
+        background-color: #0e4749;
+        border-radius: 5px;
+      }
+      #eu > a:hover {
+        text-decoration: underline;
+        color: #c4402e;
+      }
+
+      /* Gentle entrance on load - pure CSS, always resolves to fully visible */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        animation: fadeUp 0.5s ease-out both;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="logo">Elite <span>Dental</span></div>
+        <nav class="nav-links nav-mobile-hide">
+          <a href="#servicos">Serviços</a>
+          <a href="#porque">Porquê nós</a>
+          <a href="#localizacao">Localização</a>
+        </nav>
+        <a class="nav-cta" href="tel:+258879900113"> Ligar agora </a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Consultório médico dentário · Beira</span>
+            <h1>Cuidado dentário com <em>precisão</em> e proximidade</h1>
+            <p class="lead">
+              Saúde oral, estética e reabilitação dentária num consultório
+              pensado para si, na Capitão Pais Ramos, Beira. O seu sorriso
+              merece atenção de especialistas.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="tel:+258879900113">
+                Marcar consulta - Ligar
+              </a>
+              <a
+                class="btn btn-ghost"
+                href="https://wa.me/258879900113"
+                target="_blank"
+                rel="noopener"
+              >
+                Falar por WhatsApp
+              </a>
+            </div>
+            <div class="quickfacts">
+              <div>
+                <span class="qf-label">Morada</span>
+                <span class="qf-value">Capitão Pais Ramos, Beira</span>
+              </div>
+              <div>
+                <span class="qf-label">Horário hoje</span>
+                <span class="qf-value">Aberto · fecha às 17h00</span>
+              </div>
+              <div>
+                <span class="qf-label">Contacto</span>
+                <span class="qf-value">87 990 0113</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-photo">
+              <img
+                src="image/pexels-tima-miroshnichenko-5355863.jpg"
+                alt="Cadeira e equipamento odontológico do consultório Elite Dental, em Beira"
+              />
+            </div>
+            <div class="floating-card">
+              <span class="fc-eyebrow">Localização</span>
+              <span class="fc-main">Privilegiada, no coração da Beira</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg
+        class="arc-divider"
+        viewBox="0 0 1440 90"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,45 L1440,90 L0,90 Z"
+          fill="#0E4749"
+        ></path>
+      </svg>
+    </section>
+
+    <div class="trust">
+      <div
+        class="wrap trust-item"
+        style="justify-content: space-between; display: flex"
+      >
+        <div class="trust-item">
+          <span class="trust-icon"></span><strong>Saúde oral</strong>&nbsp;geral
+          e preventiva
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon"></span
+          ><strong>Estética</strong>&nbsp;dentária
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon"></span
+          ><strong>Reabilitação</strong>&nbsp;dentária
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon"></span><strong>Marcação</strong>&nbsp;rápida
+          por telefone
+        </div>
+      </div>
+    </div>
+
+    <section class="services" id="servicos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">O que tratamos</span>
+          <h2>Três áreas, um único padrão de cuidado</h2>
+          <p>
+            A Elite Dental organiza o atendimento em torno das necessidades
+            reais de quem procura um dentista em Beira: prevenção, aparência e
+            recuperação da função dentária.
+          </p>
+        </div>
+        <div class="service-grid">
+          <div class="service-card reveal">
+            <span class="service-num">01 - Saúde oral</span>
+            <h3>Consultas &amp; prevenção</h3>
+            <p>
+              Avaliação, higiene oral e acompanhamento regular para travar
+              problemas antes de se agravarem.
+            </p>
+          </div>
+          <div class="service-card reveal">
+            <span class="service-num">02 - Estética</span>
+            <h3>Estética dentária</h3>
+            <p>
+              Tratamentos focados em devolver confiança ao seu sorriso, com
+              atendimento cuidado do início ao fim.
+            </p>
+          </div>
+          <div class="service-card reveal">
+            <span class="service-num">03 - Reabilitação</span>
+            <h3>Reabilitação dentária</h3>
+            <p>
+              Recuperação da função e estrutura dentária para quem precisa de um
+              tratamento mais completo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="porque">
+      <div class="wrap">
+        <div class="why-grid">
+          <div class="why-photo reveal">
+            <img
+              src="image/sala-de-espera1.jpg"
+              alt="Sala de espera do consultório Elite Dental"
+            />
+          </div>
+          <div>
+            <span class="eyebrow">Porquê a Elite Dental</span>
+            <h2 style="margin-top: 14px; font-size: clamp(1.9rem, 3vw, 2.4rem)">
+              Um consultório para acompanhar o seu tratamento do princípio ao
+              fim
+            </h2>
+            <ul class="why-list">
+              <li class="reveal">
+                <span class="why-mark">”</span>
+                <div>
+                  <h4>Localização privilegiada</h4>
+                  <p>
+                    Instalado na Capitão Pais Ramos, em Beira, de fácil acesso
+                    para consultas de rotina ou urgência.
+                  </p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="why-mark">”</span>
+                <div>
+                  <h4>Atendimento acompanhado</h4>
+                  <p>
+                    Cada consulta é conduzida com atenção ao conforto do
+                    paciente, do primeiro contacto ao final do tratamento.
+                  </p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="why-mark">”</span>
+                <div>
+                  <h4>Marcação directa</h4>
+                  <p>
+                    Sem intermediários: ligue ou escreva directamente para o
+                    consultório e agende o seu horário.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review">
+      <div class="wrap">
+        <div class="review-card reveal">
+          <p class="review-quote">
+            "Atendimento de alta qualidade" - assim descreve quem já passou pela
+            Elite Dental.
+          </p>
+          <p class="review-attrib">AVALIAÇÃO DE PACIENTE · GOOGLE</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="localizacao">
+      <svg
+        class="arc-divider-top"
+        viewBox="0 0 1440 60"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,20 C240,60 480,0 720,25 C960,50 1200,5 1440,30 L1440,0 L0,0 Z"
+          fill="#F7F5EF"
+        ></path>
+      </svg>
+      <div class="wrap">
+        <div class="loc-grid">
+          <div>
+            <span class="eyebrow">Onde estamos</span>
+            <h2>Venha conhecer o consultório</h2>
+            <p>
+              Atendimento presencial na Capitão Pais Ramos, Beira. Ligue antes
+              de vir para confirmar disponibilidade no seu horário preferido.
+            </p>
+
+            <div class="loc-detail reveal">
+              <span class="li-label">Morada</span>
+              <span class="li-value"
+                >Capitão Pais Ramos, Beira, Moçambique</span
+              >
+            </div>
+            <div class="loc-detail reveal">
+              <span class="li-label">Telefone</span>
+              <span class="li-value"
+                ><a href="tel:+258879900113">87 990 0113</a></span
+              >
+            </div>
+            <div class="loc-detail reveal">
+              <span class="li-label">Horário</span>
+              <span class="li-value">Hoje: aberto · fecha às 17h00</span>
+            </div>
+            <div class="loc-detail reveal">
+              <span class="li-label">Mapa</span>
+              <span class="li-value"
+                ><a
+                  href="https://maps.app.goo.gl/cZVgdTvCM6sWSj1N7"
+                  target="_blank"
+                  rel="noopener"
+                  >Ver no Google Maps →</a
+                ></span
+              >
+            </div>
+          </div>
+
+          <div class="final-cta-card reveal">
+            <span class="eyebrow" style="color: var(--coral)"
+              >Pronto para marcar?</span
+            >
+            <h3 style="margin-top: 10px">Agende a sua consulta hoje</h3>
+            <p>
+              Fale directamente com a Elite Dental por chamada ou WhatsApp e
+              garanta o seu horário.
+            </p>
+            <a class="btn btn-primary" href="tel:+258879900113"
+              >Ligar: 87 990 0113</a
+            >
+            <a
+              class="btn btn-ghost"
+              href="https://wa.me/258879900113"
+              target="_blank"
+              rel="noopener"
+              >Escrever no WhatsApp</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div class="foot-logo">Elite <span>Dental</span></div>
+          <div class="foot-links">
+            <a href="#servicos">Serviços</a>
+            <a href="#porque">Porquê nós</a>
+            <a href="#localizacao">Localização</a>
+            <!--<a href="tel:+258879900113">87 990 0113</a>-->
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>© 2026 Elite Dental - Consultório Médico Dentário, Beira.</span>
+          <span>Capitão Pais Ramos, Beira, Moçambique</span>
+          <span id="eu"
+            >Site densevolvido por
+            <a href="https://wa.me/258860215520" target="_blank" rel="external"
+              >Augusto Botão</a
+            >.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
