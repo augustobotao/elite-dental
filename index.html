@@ -890,16 +890,111 @@
         font-weight: bold;
         color: #087f8c;
       }
+
+      /* Menu mobile */
+      .nav-toggle {
+        display: none;
+      }
+
+      .menu-icon {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      .menu-icon span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--teal-deep);
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+
+      /* Responsividade do navbar */
+      @media (max-width: 850px) {
+        .nav {
+          padding: 14px 20px;
+          position: relative;
+          flex-wrap: wrap;
+        }
+
+        .menu-icon {
+          display: flex;
+          margin-left: auto;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--enamel);
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          padding: 12px 20px 20px;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-toggle:checked ~ .nav-links {
+          display: flex;
+        }
+
+        .nav-links a {
+          padding: 13px 8px;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .nav-links .nav-cta {
+          justify-content: center;
+          margin-top: 12px;
+          border-bottom: none;
+        }
+
+        .nav-toggle:focus-visible + .menu-icon {
+          outline: 2px solid var(--coral);
+          outline-offset: 4px;
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      section {
+        scroll-margin-top: 100px;
+      }
     </style>
   </head>
   <body>
     <header>
       <div class="nav">
         <div class="logo">Elite <span>Dental</span></div>
+
+        <!-- Controlo do menu mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+        <label
+          for="nav-toggle"
+          class="menu-icon"
+          aria-label="Abrir ou fechar menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
         <nav class="nav-links">
           <a href="#servicos">Serviços</a>
+          <a href="#precos">Preços</a>
           <a href="#porque">Porquê nós</a>
           <a href="#localizacao">Localização</a>
+          <a href="#marcacao">Marcação</a>
         </nav>
         <a class="nav-cta" href="tel:+258860215520"> Ligar agora </a>
       </div>
@@ -1237,10 +1332,6 @@
                 />
                 <label>Consulta de avaliação — 1.000 MZN</label>
               </div>
-              <div class="total-price">
-                <h3>Total estimado:</h3>
-                <p id="estimatedTotal">0 MZN</p>
-              </div>
 
               <div class="treatment-option">
                 <input
@@ -1270,6 +1361,10 @@
                   data-price="6500"
                 />
                 <label>Branqueamento dentário — 6.500 MZN</label>
+              </div>
+              <div class="total-price">
+                <h3>Total estimado:</h3>
+                <p id="estimatedTotal">0 MZN</p>
               </div>
             </div>
 
