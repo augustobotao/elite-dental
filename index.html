@@ -853,6 +853,43 @@
           padding: 22px 17px;
         }
       }
+      .treatment-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .treatment-option input {
+        width: 18px;
+        height: 18px;
+        accent-color: #087f8c;
+        cursor: pointer;
+      }
+
+      .treatment-option label {
+        cursor: pointer;
+        font-size: 15px;
+      }
+      .total-price {
+        margin-top: 20px;
+        padding: 18px;
+        background-color: #f0f8f9;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .total-price h3 {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .total-price p {
+        margin: 0;
+        font-size: 26px;
+        font-weight: bold;
+        color: #087f8c;
+      }
     </style>
   </head>
   <body>
@@ -864,7 +901,7 @@
           <a href="#porque">Porquê nós</a>
           <a href="#localizacao">Localização</a>
         </nav>
-        <a class="nav-cta" href="tel:+258879900113"> Ligar agora </a>
+        <a class="nav-cta" href="tel:+258860215520"> Ligar agora </a>
       </div>
     </header>
 
@@ -880,12 +917,12 @@
               merece atenção de especialistas.
             </p>
             <div class="cta-row">
-              <a class="btn btn-primary" href="tel:+258879900113">
+              <a class="btn btn-primary" href="tel:+258860215520">
                 Marcar consulta - Ligar
               </a>
               <a
                 class="btn btn-ghost"
-                href="https://wa.me/258879900113"
+                href="https://wa.me/258860215520"
                 target="_blank"
                 rel="noopener"
               >
@@ -903,7 +940,7 @@
               </div>
               <div>
                 <span class="qf-label">Contacto</span>
-                <span class="qf-value">87 990 0113</span>
+                <span class="qf-value">860215520</span>
               </div>
             </div>
           </div>
@@ -1189,25 +1226,51 @@
             </div>
 
             <div class="form-group">
-              <label for="procedure"> Procedimento pretendido </label>
+              <label>Tratamentos pretendidos</label>
 
-              <select id="procedure" name="procedure" required>
-                <option value="">Seleccione um procedimento</option>
+              <div class="treatment-option">
+                <input
+                  type="checkbox"
+                  name="procedures"
+                  value="Consulta de avaliação"
+                  data-price="1000"
+                />
+                <label>Consulta de avaliação — 1.000 MZN</label>
+              </div>
+              <div class="total-price">
+                <h3>Total estimado:</h3>
+                <p id="estimatedTotal">0 MZN</p>
+              </div>
 
-                <option value="Consulta de avaliação">
-                  Consulta de avaliação
-                </option>
+              <div class="treatment-option">
+                <input
+                  type="checkbox"
+                  name="procedures"
+                  value="Limpeza dentária"
+                  data-price="1800"
+                />
+                <label>Limpeza dentária — 1.800 MZN</label>
+              </div>
 
-                <option value="Limpeza dentária">Limpeza dentária</option>
+              <div class="treatment-option">
+                <input
+                  type="checkbox"
+                  name="procedures"
+                  value="Restauração dentária"
+                  data-price="2500"
+                />
+                <label>Restauração dentária — 2.500 MZN</label>
+              </div>
 
-                <option value="Restauração dentária">
-                  Restauração dentária
-                </option>
-
-                <option value="Branqueamento dentário">
-                  Branqueamento dentário
-                </option>
-              </select>
+              <div class="treatment-option">
+                <input
+                  type="checkbox"
+                  name="procedures"
+                  value="Branqueamento dentário"
+                  data-price="6500"
+                />
+                <label>Branqueamento dentário — 6.500 MZN</label>
+              </div>
             </div>
 
             <div class="form-group">
@@ -1283,7 +1346,7 @@
             <div class="loc-detail reveal">
               <span class="li-label">Telefone</span>
               <span class="li-value"
-                ><a href="tel:+258879900113">87 990 0113</a></span
+                ><a href="tel:+258860215520">86 021 5520</a></span
               >
             </div>
             <div class="loc-detail reveal">
@@ -1312,12 +1375,12 @@
               Fale directamente com a Elite Dental por chamada ou WhatsApp e
               garanta o seu horário.
             </p>
-            <a class="btn btn-primary" href="tel:+258879900113"
-              >Ligar: 87 990 0113</a
+            <a class="btn btn-primary" href="tel:+258860215520"
+              >Ligar: 86 021 5520</a
             >
             <a
               class="btn btn-ghost"
-              href="https://wa.me/258879900113"
+              href="https://wa.me/258860215520"
               target="_blank"
               rel="noopener"
               >Escrever no WhatsApp</a
@@ -1335,7 +1398,6 @@
             <a href="#servicos">Serviços</a>
             <a href="#porque">Porquê nós</a>
             <a href="#localizacao">Localização</a>
-            <!--<a href="tel:+258879900113">87 990 0113</a>-->
           </div>
         </div>
         <div class="foot-bottom">
@@ -1351,23 +1413,103 @@
       </div>
     </footer>
     <script>
-      // Seleccionar todos os botões de marcação
+      // Seleccionar os tratamentos
+      const treatmentCheckboxes = document.querySelectorAll(
+        'input[name="procedures"]',
+      );
+
+      // Encontrar o elemento que apresenta o total
+      const estimatedTotal = document.getElementById("estimatedTotal");
+
+      // Função para calcular o preço total
+      function updateEstimatedTotal() {
+        let total = 0;
+
+        treatmentCheckboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            total += Number(checkbox.dataset.price);
+          }
+        });
+
+        estimatedTotal.textContent =
+          new Intl.NumberFormat("pt-MZ").format(total) + " MZN";
+      }
+
+      // Actualizar o total sempre que uma opção mudar
+      treatmentCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", updateEstimatedTotal);
+      });
+
+      // Permitir seleccionar o tratamento através dos cartões de preços
       const pricingButtons = document.querySelectorAll(
         ".pricing-btn[data-procedure]",
       );
 
-      // Identificar o campo de procedimento
-      const procedureSelect = document.getElementById("procedure");
-
-      // Percorrer os botões
       pricingButtons.forEach((button) => {
         button.addEventListener("click", function () {
-          // Obter o procedimento associado ao botão
           const selectedProcedure = this.dataset.procedure;
 
-          // Seleccionar automaticamente no formulário
-          procedureSelect.value = selectedProcedure;
+          const checkbox = Array.from(treatmentCheckboxes).find(
+            (item) => item.value === selectedProcedure,
+          );
+
+          if (checkbox) {
+            checkbox.checked = true;
+            updateEstimatedTotal();
+          }
         });
+      });
+      // Ligar o formulário ao WhatsApp
+      const appointmentForm = document.getElementById("appointmentForm");
+
+      appointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Recolher os dados do paciente
+        const name = document.getElementById("patientName").value;
+        const phone = document.getElementById("patientPhone").value;
+        const date = document.getElementById("appointmentDate").value;
+        const notes = document.getElementById("appointmentNotes").value;
+
+        // Recolher os tratamentos seleccionados
+        const selectedTreatments = Array.from(
+          document.querySelectorAll('input[name="procedures"]:checked'),
+        );
+
+        // Calcular o total
+        let total = 0;
+
+        const treatmentsList = selectedTreatments.map((treatment) => {
+          total += Number(treatment.dataset.price);
+
+          return `- ${treatment.value}: ${new Intl.NumberFormat("pt-MZ").format(
+            Number(treatment.dataset.price),
+          )} MZN`;
+        });
+
+        // Criar a mensagem
+        const message = `
+*PEDIDO DE MARCAÇÃO - ELITE DENTAL*
+
+Nome: ${name}
+Telefone: ${phone}
+
+*Tratamentos pretendidos:*
+${treatmentsList.join("\n")}
+
+*Total estimado: ${new Intl.NumberFormat("pt-MZ").format(total)} MZN*
+
+Data pretendida: ${date || "Não indicada"}
+
+Observações: ${notes || "Nenhuma"}
+    `;
+
+        // Abrir o WhatsApp
+        const whatsappNumber = "258860215520";
+
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappURL, "_blank");
       });
     </script>
   </body>
