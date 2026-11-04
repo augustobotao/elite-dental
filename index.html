@@ -429,6 +429,96 @@
         color: var(--ink-soft);
         font-size: 0.95rem;
       }
+      /* ================= PREÇOS ================= */
+
+      .pricing {
+        background: var(--enamel-dim);
+        border-top: 1px solid var(--line);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+        gap: 20px;
+      }
+
+      .pricing-card {
+        background: #fff;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(14, 71, 73, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.25rem;
+        margin: 14px 0 10px;
+      }
+
+      .pricing-card p {
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+        flex-grow: 1;
+      }
+
+      .pricing-price {
+        color: var(--teal-deep);
+        font-family: "Fraunces", serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 22px 0 16px;
+      }
+
+      .pricing-price span {
+        font-family: "Work Sans", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+
+      .pricing-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 20px;
+        border-radius: 100px;
+        background: var(--teal-deep);
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: background 0.2s;
+      }
+
+      .pricing-btn:hover {
+        background: var(--teal-mid);
+      }
+
+      .pricing-disclaimer {
+        margin-top: 25px;
+        color: var(--ink-soft);
+        font-size: 0.82rem;
+      }
+
+      /* Ajustes para telemóveis */
+
+      @media (max-width: 560px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .pricing-card {
+          padding: 23px;
+        }
+      }
 
       /* ================= WHY / FEATURE SPLIT ================= */
       .why {
@@ -692,6 +782,77 @@
           flex-wrap: wrap;
         }
       }
+      /* ================= MARCAÇÃO ================= */
+
+      .booking {
+        background: var(--enamel);
+        padding: 90px 0;
+      }
+
+      .booking-container {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 35px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(14, 71, 73, 0.06);
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: #fff;
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 0.95rem;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: 2px solid var(--aqua);
+        border-color: var(--teal-mid);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+      }
+
+      .booking-container button {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 600px) {
+        .booking {
+          padding: 60px 0;
+        }
+
+        .booking-container {
+          padding: 22px 17px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -837,6 +998,108 @@
       </div>
     </section>
 
+    <!-- SECÇÃO DE PREÇOS -->
+    <section class="pricing" id="precos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow"> Transparência no atendimento </span>
+
+          <h2>Cuidados de qualidade, preços claros</h2>
+
+          <p>
+            Conheça os valores de referência dos nossos tratamentos e escolha o
+            serviço que procura.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- CARTÃO 1 -->
+          <article class="pricing-card">
+            <span class="service-num"> 01 - PREVENÇÃO </span>
+
+            <h3>Consulta de avaliação</h3>
+
+            <p>
+              Avaliação inicial da saúde oral e identificação das necessidades
+              do paciente.
+            </p>
+
+            <div class="pricing-price">1.000 <span>MZN</span></div>
+
+            <a
+              href="#marcacao"
+              class="pricing-btn"
+              data-procedure="Consulta de avaliação"
+            >
+              Solicitar marcação
+            </a>
+          </article>
+
+          <!-- CARTÃO 2 -->
+          <article class="pricing-card">
+            <span class="service-num"> 02 - HIGIENE </span>
+
+            <h3>Limpeza dentária</h3>
+
+            <p>Higienização profissional e remoção de depósitos nos dentes.</p>
+
+            <div class="pricing-price">1.800 <span>MZN</span></div>
+
+            <a
+              href="#marcacao"
+              class="pricing-btn"
+              data-procedure="Limpeza dentária"
+            >
+              Solicitar marcação
+            </a>
+          </article>
+
+          <!-- CARTÃO 3 -->
+          <article class="pricing-card">
+            <span class="service-num"> 03 - RESTAURAÇÃO </span>
+
+            <h3>Restauração dentária</h3>
+
+            <p>Tratamento para recuperar a estrutura de um dente danificado.</p>
+
+            <div class="pricing-price">2.500 <span>MZN</span></div>
+
+            <a
+              href="#marcacao"
+              class="pricing-btn"
+              data-procedure="Restauração dentária"
+            >
+              Solicitar marcação
+            </a>
+          </article>
+
+          <!-- CARTÃO 4 -->
+          <article class="pricing-card">
+            <span class="service-num"> 04 - ESTÉTICA </span>
+
+            <h3>Branqueamento dentário</h3>
+
+            <p>Procedimento estético para melhorar a aparência do sorriso.</p>
+
+            <div class="pricing-price">6.500 <span>MZN</span></div>
+
+            <a
+              href="#marcacao"
+              class="pricing-btn"
+              data-procedure="Branqueamento dentário"
+            >
+              Solicitar marcação
+            </a>
+          </article>
+        </div>
+
+        <p class="pricing-disclaimer">
+          * Valores meramente ilustrativos, sujeitos à confirmação e avaliação
+          clínica.
+        </p>
+      </div>
+    </section>
+
     <section class="why" id="porque">
       <div class="wrap">
         <div class="why-grid">
@@ -885,6 +1148,94 @@
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECÇÃO DE MARCAÇÃO -->
+    <section class="booking" id="marcacao">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"> Estamos aqui para cuidar de si </span>
+
+          <h2>Solicite a sua marcação</h2>
+
+          <p>Preencha os seus dados e escolha o procedimento pretendido.</p>
+        </div>
+
+        <div class="booking-container">
+          <form id="appointmentForm">
+            <div class="form-group">
+              <label for="patientName"> Nome completo </label>
+
+              <input
+                type="text"
+                id="patientName"
+                name="patientName"
+                placeholder="Introduza o seu nome"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="patientPhone"> Número de telefone </label>
+
+              <input
+                type="tel"
+                id="patientPhone"
+                name="patientPhone"
+                placeholder="+258 8X XXX XXXX"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="procedure"> Procedimento pretendido </label>
+
+              <select id="procedure" name="procedure" required>
+                <option value="">Seleccione um procedimento</option>
+
+                <option value="Consulta de avaliação">
+                  Consulta de avaliação
+                </option>
+
+                <option value="Limpeza dentária">Limpeza dentária</option>
+
+                <option value="Restauração dentária">
+                  Restauração dentária
+                </option>
+
+                <option value="Branqueamento dentário">
+                  Branqueamento dentário
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentDate"> Data pretendida </label>
+
+              <input
+                type="date"
+                id="appointmentDate"
+                name="appointmentDate"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentNotes"> Observações adicionais </label>
+
+              <textarea
+                id="appointmentNotes"
+                name="appointmentNotes"
+                rows="4"
+                placeholder="Escreva aqui alguma observação..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="pricing-btn">
+              Solicitar consulta
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -999,5 +1350,25 @@
         </div>
       </div>
     </footer>
+    <script>
+      // Seleccionar todos os botões de marcação
+      const pricingButtons = document.querySelectorAll(
+        ".pricing-btn[data-procedure]",
+      );
+
+      // Identificar o campo de procedimento
+      const procedureSelect = document.getElementById("procedure");
+
+      // Percorrer os botões
+      pricingButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Obter o procedimento associado ao botão
+          const selectedProcedure = this.dataset.procedure;
+
+          // Seleccionar automaticamente no formulário
+          procedureSelect.value = selectedProcedure;
+        });
+      });
+    </script>
   </body>
 </html>
